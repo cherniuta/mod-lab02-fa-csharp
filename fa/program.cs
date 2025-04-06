@@ -22,30 +22,31 @@ namespace fans
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State zeroState = new State()
+        public State zeroState = new State()
         {
             Name = "zero",
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State oneWithZeroState = new State()
+        public State oneWithZeroState = new State()
         {
             Name = "oneWithZero",
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State tooManyZerosState = new State()
+        public State tooManyZerosState = new State()
         {
             Name = "tooManyZeros",
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State acceptState = new State()
+        public State acceptState = new State()
         {
             Name = "accept",
             IsAcceptState = true,
             Transitions = new Dictionary<char, State>()
         };
+        private State initialState = startState;
 
         public FA1()
         {
@@ -67,7 +68,7 @@ namespace fans
 
         public bool? Run(IEnumerable<char> input)
         {
-            State current = startState;
+            State current = initialState;
             foreach (var symbol in input)
             {
                 if (!current.Transitions.TryGetValue(symbol, out current))
@@ -86,24 +87,25 @@ namespace fans
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State evenZeroOddOne = new State()
+        public State evenZeroOddOne = new State()
         {
             Name = "evenZeroOddOne",
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State oddZeroEvenOne = new State()
+        public State oddZeroEvenOne = new State()
         {
             Name = "oddZeroEvenOne",
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State oddZeroOddOne = new State()
+        public State oddZeroOddOne = new State()
         {
             Name = "oddZeroOddOne",
             IsAcceptState = true,
             Transitions = new Dictionary<char, State>()
         };
+        private State initialState = evenZeroEvenOne;
 
         public FA2()
         {
@@ -122,7 +124,7 @@ namespace fans
 
         public bool? Run(IEnumerable<char> input)
         {
-            State current = evenZeroEvenOne;
+            State current = initialState;
             foreach (var symbol in input)
             {
                 if (!current.Transitions.TryGetValue(symbol, out current))
@@ -140,18 +142,19 @@ namespace fans
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State oneState = new State()
+        public State oneState = new State()
         {
             Name = "one",
             IsAcceptState = false,
             Transitions = new Dictionary<char, State>()
         };
-        public static State acceptState = new State()
+        public State acceptState = new State()
         {
             Name = "accept",
             IsAcceptState = true,
             Transitions = new Dictionary<char, State>()
         };
+        private State initialState = startState;
 
         public FA3()
         {
@@ -167,7 +170,7 @@ namespace fans
 
         public bool? Run(IEnumerable<char> input)
         {
-            State current = startState;
+            State current = initialState;
             foreach (var symbol in input)
             {
                 if (!current.Transitions.TryGetValue(symbol, out current))
