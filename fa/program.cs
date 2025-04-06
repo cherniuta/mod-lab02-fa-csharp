@@ -51,18 +51,18 @@ namespace fans
         public FA1()
         {
             startState.Transitions['0'] = zeroState;
-            startState.Transitions['1'] = startState;
+            startState.Transitions['1'] = tooManyZerosState;
 
-            zeroState.Transitions['0'] = tooManyZerosState;
-            zeroState.Transitions['1'] = oneWithZeroState;
+            zeroState.Transitions['0'] = oneWithZeroState;
+            zeroState.Transitions['1'] = acceptState;
 
-            oneWithZeroState.Transitions['0'] = tooManyZerosState;
-            oneWithZeroState.Transitions['1'] = acceptState;
+            oneWithZeroState.Transitions['0'] = oneWithZeroState;
+            oneWithZeroState.Transitions['1'] = oneWithZeroState;
 
-            tooManyZerosState.Transitions['0'] = tooManyZerosState;
+            tooManyZerosState.Transitions['0'] = acceptState;
             tooManyZerosState.Transitions['1'] = tooManyZerosState;
 
-            acceptState.Transitions['0'] = tooManyZerosState;
+            acceptState.Transitions['0'] = oneWithZeroState;
             acceptState.Transitions['1'] = acceptState;
         }
 
