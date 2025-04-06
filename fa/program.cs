@@ -16,45 +16,39 @@ namespace fans
 
     public class FA1
     {
-        State startState;
-        State zeroState;
-        State oneWithZeroState;
-        State tooManyZerosState;
-        State acceptState;
+        public static State startState = new State()
+        {
+            Name = "start",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State zeroState = new State()
+        {
+            Name = "zero",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State oneWithZeroState = new State()
+        {
+            Name = "oneWithZero",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State tooManyZerosState = new State()
+        {
+            Name = "tooManyZeros",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State acceptState = new State()
+        {
+            Name = "accept",
+            IsAcceptState = true,
+            Transitions = new Dictionary<char, State>()
+        };
 
         public FA1()
         {
-            startState = new State()
-            {
-                Name = "start",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            zeroState = new State()
-            {
-                Name = "zero",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            oneWithZeroState = new State()
-            {
-                Name = "oneWithZero",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            tooManyZerosState = new State()
-            {
-                Name = "tooManyZeros",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            acceptState = new State()
-            {
-                Name = "accept",
-                IsAcceptState = true,
-                Transitions = new Dictionary<char, State>()
-            };
-
             startState.Transitions['0'] = zeroState;
             startState.Transitions['1'] = startState;
 
@@ -86,39 +80,33 @@ namespace fans
 
     public class FA2
     {
-        State evenZeroEvenOne;
-        State evenZeroOddOne;
-        State oddZeroEvenOne;
-        State oddZeroOddOne;
+        public static State evenZeroEvenOne = new State()
+        {
+            Name = "evenZeroEvenOne",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State evenZeroOddOne = new State()
+        {
+            Name = "evenZeroOddOne",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State oddZeroEvenOne = new State()
+        {
+            Name = "oddZeroEvenOne",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State oddZeroOddOne = new State()
+        {
+            Name = "oddZeroOddOne",
+            IsAcceptState = true,
+            Transitions = new Dictionary<char, State>()
+        };
 
         public FA2()
         {
-            evenZeroEvenOne = new State()
-            {
-                Name = "evenZeroEvenOne",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            evenZeroOddOne = new State()
-            {
-                Name = "evenZeroOddOne",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            oddZeroEvenOne = new State()
-            {
-                Name = "oddZeroEvenOne",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            oddZeroOddOne = new State()
-            {
-                Name = "oddZeroOddOne",
-                IsAcceptState = true,
-                Transitions = new Dictionary<char, State>()
-            };
-
-            // Настройка переходов
             evenZeroEvenOne.Transitions['0'] = oddZeroEvenOne;
             evenZeroEvenOne.Transitions['1'] = evenZeroOddOne;
 
@@ -146,31 +134,27 @@ namespace fans
 
     public class FA3
     {
-        State startState;
-        State oneState;
-        State acceptState;
+        public static State startState = new State()
+        {
+            Name = "start",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State oneState = new State()
+        {
+            Name = "one",
+            IsAcceptState = false,
+            Transitions = new Dictionary<char, State>()
+        };
+        public static State acceptState = new State()
+        {
+            Name = "accept",
+            IsAcceptState = true,
+            Transitions = new Dictionary<char, State>()
+        };
 
         public FA3()
         {
-            startState = new State()
-            {
-                Name = "start",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            oneState = new State()
-            {
-                Name = "one",
-                IsAcceptState = false,
-                Transitions = new Dictionary<char, State>()
-            };
-            acceptState = new State()
-            {
-                Name = "accept",
-                IsAcceptState = true,
-                Transitions = new Dictionary<char, State>()
-            };
-
             startState.Transitions['0'] = startState;
             startState.Transitions['1'] = oneState;
 
